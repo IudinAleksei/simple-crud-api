@@ -1,0 +1,39 @@
+{
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "NodeJS2021Q4, Task3",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon my_ciphering_cli.js",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint --fix --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IudinAleksei/simple-crud-api.git"
+  },
+  "keywords": [
+    "CRUD",
+    "API"
+  ],
+  "author": "IudinAleksei",
+  "bugs": {
+    "url": "https://github.com/IudinAleksei/simple-crud-api/issues"
+  },
+  "homepage": "https://github.com/IudinAleksei/simple-crud-api#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.4.1",
+    "webpack": "^5.64.2"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "uuid": "^8.3.2"
+  }
+}
