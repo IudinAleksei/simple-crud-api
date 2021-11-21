@@ -4,10 +4,12 @@
   "description": "NodeJS2021Q4, Task3",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon my_ciphering_cli.js",
+    "start:dev": "nodemon src/index.js",
+    "start:prod": "node src/index.js",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint --fix --ext .js"
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/IudinAleksei/simple-crud-api.git"
