@@ -20,6 +20,8 @@ export class VirtualDB {
     };
 
     this.data = [...this.data, newItem];
+
+    return newItem;
   }
 
   updateItem(id, item) {

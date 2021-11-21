@@ -6,6 +6,6 @@ export const createResponse = (res, code, data) => {
   res.end();
 };
 
-export const parseUrl = (url) => {
+export const getIdFromUrl = (url) => {
   return url;
 };
