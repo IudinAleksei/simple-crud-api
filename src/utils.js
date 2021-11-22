@@ -6,6 +6,6 @@ export const createResponse = (res, code, data) => {
   res.end();
 };
 
-export const getIdFromUrl = (url) => {
-  return url;
+export const parseUrl = (url) => {
+  return url.split('/').filter((path) => path.length > 0);
 };
