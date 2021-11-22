@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 import { Controller } from './controller.js';
 import { PERSONS } from './data.js';
-import { createResponse, parseUrl } from './utils.js';
+import { createResponse, parseUrl, getRequestBody } from './utils.js';
 import { VirtualDB } from './virtual_db.js';
 import { HTTP_ERRORS_INFO } from './constants.js';
 import { HTTPResponseError } from './error_hadlers.js';
@@ -29,12 +29,7 @@ server.on('request', async (req, res) => {
         }
 
         if (req.method === 'POST') {
-          console.log(req.body);
-          const newPerson = {
-            name: 'Patricia Lebsack',
-            age: 26,
-            hobbies: [],
-          };
+          const newPerson = await getRequestBody(req);
           const person = await controller.addPerson(newPerson);
           createResponse(res, 201, person);
           return;
@@ -51,16 +46,9 @@ server.on('request', async (req, res) => {
         }
 
         if (req.method === 'PUT') {
-          console.log(req.body);
+          const personForUpdate = await getRequestBody(req);
 
-          const newPerson = {
-            id: 10,
-            name: 'Patricia Lebsack',
-            age: 26,
-            hobbies: [],
-          };
-
-          const person = await controller.updatePerson(newPerson);
+          const person = await controller.updatePerson(personForUpdate);
           createResponse(res, 200, person);
           return;
         }
@@ -75,16 +63,11 @@ server.on('request', async (req, res) => {
 
     throw new HTTPResponseError(HTTP_ERRORS_INFO.noRoute);
   } catch (error) {
-    console.log(error);
     const errorForResponse =
       error instanceof HTTPResponseError ? error : new HTTPResponseError(HTTP_ERRORS_INFO.server);
     createResponse(res, errorForResponse.responseCode, { message: errorForResponse.message });
   }
 });
-
-// server.on('clientError', (err, socket) => {
-//   socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
-// });
 
 server.listen(port, () => {
   console.log(`Server running at port ${port}`);
