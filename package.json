@@ -4,8 +4,9 @@
   "description": "NodeJS2021Q4, Task3",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "start:dev": "nodemon src/index.js",
-    "start:prod": "node src/index.js",
+    "start:prod": "webpack",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint --fix --ext .js"
   },
