@@ -11,7 +11,7 @@ import { HTTPResponseError } from './error_hadlers.js';
 dotenv.config();
 
 const port = process.env.PORT || 3000;
-const startDBWithData = process.env.WITHDATA;
+const startDBWithData = process.env.WITHDATA === 'true';
 
 const server = http.createServer();
 
@@ -35,6 +35,8 @@ server.on('request', async (req, res) => {
           createResponse(res, 201, person);
           return;
         }
+
+        throw new HTTPResponseError(HTTP_ERRORS_INFO.methodNotImplemented);
       }
 
       if (parsedUrl.length === 2) {
@@ -59,6 +61,8 @@ server.on('request', async (req, res) => {
           createResponse(res, 204);
           return;
         }
+
+        throw new HTTPResponseError(HTTP_ERRORS_INFO.methodNotImplemented);
       }
     }
 
@@ -73,3 +77,5 @@ server.on('request', async (req, res) => {
 server.listen(port, () => {
   console.log(`Server running at port ${port}`);
 });
+
+export default server;
