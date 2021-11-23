@@ -2,11 +2,11 @@
   "name": "simple-crud-api",
   "version": "1.0.0",
   "description": "NodeJS2021Q4, Task3",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "start:dev": "nodemon src/index.js",
-    "start:prod": "webpack",
+    "start:prod": "webpack && node dist/index.cjs",
     "lint": "eslint . --ext .js",
     "lint:fix": "eslint --fix --ext .js"
   },
@@ -26,6 +26,8 @@
   "homepage": "https://github.com/IudinAleksei/simple-crud-api#readme",
   "license": "MIT",
   "devDependencies": {
+    "@webpack-cli/generators": "^2.4.1",
+    "clean-webpack-plugin": "^4.0.0",
     "eslint": "^8.3.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -35,7 +37,10 @@
     "nodemon": "^2.0.15",
     "prettier": "^2.4.1",
     "supertest": "^6.1.6",
-    "webpack": "^5.64.2"
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.64.2",
+    "webpack-cli": "^4.9.1",
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
