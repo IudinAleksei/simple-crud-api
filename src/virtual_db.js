@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 export class VirtualDB {
   constructor(data = []) {
     this.data = data;
@@ -14,22 +12,7 @@ export class VirtualDB {
   }
 
   addItem(item) {
-    const newItem = {
-      ...item,
-      id: uuidv4(),
-    };
-
-    this.data = [...this.data, newItem];
-
-    return newItem;
-  }
-
-  updateItem(id, item) {
-    let itemForUpdate = this.data.find((item) => item.id === id);
-    itemForUpdate = {
-      ...itemForUpdate,
-      ...item,
-    };
+    this.data = [...this.data, item];
   }
 
   removeItem(id) {
