@@ -11,10 +11,11 @@ import { HTTPResponseError } from './error_hadlers.js';
 dotenv.config();
 
 const port = process.env.PORT || 3000;
+const startDBWithData = process.env.WITHDATA;
 
 const server = http.createServer();
 
-const db = new VirtualDB(PERSONS);
+const db = new VirtualDB(startDBWithData ? PERSONS : []);
 const controller = new Controller(db);
 
 server.on('request', async (req, res) => {
@@ -63,8 +64,8 @@ server.on('request', async (req, res) => {
 
     throw new HTTPResponseError(HTTP_ERRORS_INFO.noRoute);
   } catch (error) {
-    const errorForResponse =
-      error instanceof HTTPResponseError ? error : new HTTPResponseError(HTTP_ERRORS_INFO.server);
+    const isHTTPresponseError = error instanceof HTTPResponseError;
+    const errorForResponse = isHTTPresponseError ? error : new HTTPResponseError(HTTP_ERRORS_INFO.server);
     createResponse(res, errorForResponse.responseCode, { message: errorForResponse.message });
   }
 });
