@@ -1,0 +1,49 @@
+{
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "NodeJS2021Q4, Task3",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js",
+    "start:prod": "webpack && node dist/index.cjs",
+    "e2e": "cross-env WITHDATA=false node --experimental-vm-modules node_modules/jest/bin/jest.js -i",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint --fix --ext .js"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IudinAleksei/simple-crud-api.git"
+  },
+  "keywords": [
+    "CRUD",
+    "API"
+  ],
+  "author": "IudinAleksei",
+  "bugs": {
+    "url": "https://github.com/IudinAleksei/simple-crud-api/issues"
+  },
+  "homepage": "https://github.com/IudinAleksei/simple-crud-api#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "@webpack-cli/generators": "2.4.1",
+    "eslint": "8.3.0",
+    "eslint-config-airbnb": "19.0.1",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-prettier": "4.0.0",
+    "jest": "27.3.1",
+    "nodemon": "2.0.15",
+    "prettier": "2.5.0",
+    "supertest": "6.1.6",
+    "webpack": "5.64.4",
+    "webpack-cli": "4.9.1",
+    "webpack-node-externals": "3.0.0"
+  },
+  "dependencies": {
+    "cross-env": "7.0.3",
+    "dotenv": "10.0.0",
+    "uuid": "8.3.2"
+  }
+}
