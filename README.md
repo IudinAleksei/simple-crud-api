@@ -15,6 +15,7 @@ $ node -v
 $ npm i
 ```
 
+- by default, the application listening port is 3000
 - if you want to set port for app, rename file `.env.example` to `.env` and assign the desired value to the `PORT` variable
 
 - if you want start application with non-empty DB, rename file `.env.example` to `.env` and assign `true` to the `WITHDATA` variable
@@ -36,3 +37,10 @@ $ npm run start:prod
 ```bash
 $ npm run e2e
 ```
+
+API path `http://localhost:{PORT}/person`:
+
+- **GET** `/person` or `/person/${personId}` should return all persons or person with corresponding `personId`
+- **POST** `/person` is used to create record about new person and store it in database
+- **PUT** `/person/${personId}` is used to update record about existing person
+- **DELETE** `/person/${personId}` is used to delete record about existing person from database
