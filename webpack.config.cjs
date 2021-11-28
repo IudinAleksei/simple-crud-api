@@ -1,6 +1,5 @@
-const path = require("path");
+const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
@@ -10,10 +9,10 @@ module.exports = {
     clean: true,
   },
   optimization: {
-    nodeEnv: 'production'
+    nodeEnv: 'production',
   },
   target: 'node',
   externalsPresets: { node: true },
   externals: [nodeExternals()],
-  mode: "production",
+  mode: 'production',
 };
